@@ -19,10 +19,10 @@ if (!firebase.apps.length) {
 /** 
  * Firebase-Login Google
  * */
-class Index extends React.Component {
+class FacebookAuth extends React.Component {
   constructor() {
     super()
-    this.handleAuthGoogle = this.handleAuthGoogle.bind(this);
+    this.handleAuthFacebook = this.handleAuthFacebook.bind(this);
     this.handleLogOut = this.handleLogOut.bind(this);
     this.renderLoginButton = this.renderLoginButton.bind(this);
 
@@ -38,8 +38,8 @@ class Index extends React.Component {
   }
 
   // Event click to Google Auth
-  handleAuthGoogle() {
-    const provider = new firebase.auth.GoogleAuthProvider();
+  handleAuthFacebook() {
+    const provider = new firebase.auth.FacebookAuthProvider()
 
     firebase.auth().signInWithPopup(provider)
       .then((result) => {
@@ -71,7 +71,7 @@ class Index extends React.Component {
     
     // If user is logout
     return (
-      <button onClick={ this.handleAuthGoogle }> Login with google </button>
+      <button onClick={ this.handleAuthFacebook }> Login with Facebook </button>
     )
   }
 
@@ -87,4 +87,4 @@ class Index extends React.Component {
   }
 }
 
-export default Index
+export default FacebookAuth
